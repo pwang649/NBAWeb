@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Player Profile</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="description" content="CodedThemes">
+    <meta name="keywords" content="flat ui, admin  Admin , Responsive, Landing, Bootstrap, App, Template, Mobile, iOS, Android, apple, creative app">
+    <meta name="author" content="CodedThemes">
+    <!-- Favicon icon -->
+    <link rel="icon" href="/static/assets/images/favicon.ico" type="image/x-icon">
+    <!-- Google font--><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,800" rel="stylesheet">
+    <!-- Required Fremwork -->
+    <link rel="stylesheet" type="text/css" href="/static/assets/css/bootstrap/css/bootstrap.min.css">
+    <!-- themify-icons line icon -->
+    <link rel="stylesheet" type="text/css" href="/static/assets/icon/themify-icons/themify-icons.css">
+    <!-- ico font -->
+    <link rel="stylesheet" type="text/css" href="/static/assets/icon/icofont/css/icofont.css">
+    <!-- Style.css -->
+    <link rel="stylesheet" type="text/css" href="/static/assets/css/style.css">
+    <link rel="stylesheet" type="text/css" href="/static/assets/css/jquery.mCustomScrollbar.css">
+    <style>
+        .widget-card-1 {
+            margin-top:10px
+        }
+    </style>
+</head>
+
+<body>
+    {% include "nav.html" %}
+                    <div class="pcoded-content">
+                        <div class="pcoded-inner-content">
+                            <div class="main-body">
+                                <div class="page-wrapper">
+                                    <div class="page-body">
+                                        <div class="row">
+                                            <div class="col-md-5 col-xl-3">
+                                                <div class="card">
+                                                    <div class="card-block">
+                                                        <img class="img-fluid" width="100%" src="https://ak-static.cms.nba.com/wp-content/uploads/headshots/nba/latest/260x190/{{pic}}.png"/>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-7 col-xl-9">
+                                                <div class="card">
+                                                    <div class="card-block">
+                                                        <form action="/search/" method="get">
+                                                            <div class="form-group row" style="margin-bottom:0;">
+                                                                <div class="col-md-9 col-xl-9">
+                                                                    <input type="text" class="form-control form-control-lg form-control-primary" placeholder="Search an NBA player name in format Firstname-Lastname" name="name">
+                                                                </div>
+                                                                <div class="col-md-3 col-xl-3 text-center">
+                                                                    <input type="submit" value="Search" class="btn btn-primary btn-round"></input>
+                                                                </div>
+                                                            </div>                     
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                                <div class="card">
+                                                    <div class="card-block table-border-style">
+                                                        <div class="table-responsive">
+                                                            <table class="table">
+                                                                <thead>
+                                                                    <tr>
+                                                                        <th>Score</th>
+                                                                        <th>Rebounds</th>
+                                                                        <th>Assists</th>
+                                                                        <th>Blocks</th>
+                                                                        <th>2pt Accuracy</th>
+                                                                        <th>3pt Accuracy</th>
+                                                                        <th>Free Throw Accuracy</th>
+                                                                    </tr>
+                                                                </thead>
+                                                                <tbody>
+                                                                    <tr>
+                                                                        <td>{{score}}</td>
+                                                                        <td>{{rebound}}</td>
+                                                                        <td>{{assist}}</td>
+                                                                        <td>{{block}}</td>
+                                                                        <td>{{accuracy}}%</td>
+                                                                        <td>{{threeAccuracy}}%</td>
+                                                                        <td>{{freeAccuracy}}%</td>           
+                                                                    </tr>
+                                                                </tbody>
+                                                            </table>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-12 col-xl-8">
+                                                <div class="card">
+                                                    <div class="card-header">
+                                                        <h5>Statistics</h5>
+                                                        <div class="card-header-left ">
+                                                        </div>
+                                                        <div class="card-header-right">
+                                                            <ul class="list-unstyled card-option">
+                                                                <li><i class="icofont icofont-simple-left "></i></li>
+                                                                <li><i class="icofont icofont-maximize full-card"></i></li>
+                                                                <li><i class="icofont icofont-minus minimize-card"></i></li>
+                                                                <li><i class="icofont icofont-refresh reload-card"></i></li>
+                                                                <li><i class="icofont icofont-error close-card"></i></li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                    <div class="card-block">                                                       
+                                                        <img class="img-fluid" src="/static/assets/images/radar.png"/>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12 col-xl-4">
+                                                <div class="card">
+                                                    <div class="card-header">
+                                                        <h5>Strategy</h5>
+                                                        <span>Analysis of This Player</span>
+                                                        <div class="card-header-right">
+                                                            <ul class="list-unstyled card-option" style="width: 35px;">
+                                                                <li class=""><i class="icofont icofont-simple-left"></i></li>
+                                                                <li><i class="icofont icofont-maximize full-card"></i></li>
+                                                                <li><i class="icofont icofont-minus minimize-card"></i></li>
+                                                                <li><i class="icofont icofont-refresh reload-card"></i></li>
+                                                                <li><i class="icofont icofont-error close-card"></i></li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                    <div class="card-block">
+                                                        <p>
+                                                            {{strategy}}
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                                <div class="card">
+                                                    <div class="card-header">
+                                                        <h5>Statistics</h5>
+                                                        <div class="card-header-left ">
+                                                        </div>
+                                                        <div class="card-header-right">
+                                                            <ul class="list-unstyled card-option">
+                                                                <li><i class="icofont icofont-simple-left "></i></li>
+                                                                <li><i class="icofont icofont-maximize full-card"></i></li>
+                                                                <li><i class="icofont icofont-minus minimize-card"></i></li>
+                                                                <li><i class="icofont icofont-refresh reload-card"></i></li>
+                                                                <li><i class="icofont icofont-error close-card"></i></li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                    <div class="card-block">
+                                                        <img class="img-fluid" src="/static/assets/images/kmeans.png"/>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12 col-xl-3">
+                                                
+                                            </div>
+                                        </div>
+                                    </div>      
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<!-- Required Jquery -->
+<script type="text/javascript" src="/static/assets/js/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="/static/assets/js/jquery-ui/jquery-ui.min.js"></script>
+<script type="text/javascript" src="/static/assets/js/popper.js/popper.min.js"></script>
+<script type="text/javascript" src="/static/assets/js/bootstrap/js/bootstrap.min.js"></script>
+<!-- jquery slimscroll js -->
+<script type="text/javascript" src="/static/assets/js/jquery-slimscroll/jquery.slimscroll.js"></script>
+<!-- modernizr js -->
+<script type="text/javascript" src="/static/assets/js/modernizr/modernizr.js"></script>
+<script type="text/javascript" src="/static/assets/js/modernizr/css-scrollbars.js"></script>
+<!-- classie js -->
+<script type="text/javascript" src="/static/assets/js/classie/classie.js"></script>
+<!-- Custom js -->
+<script type="text/javascript" src="/static/assets/js/script.js"></script>
+<script src="/static/assets/js/pcoded.min.js"></script>
+<script src="/static/assets/js/demo-12.js"></script>
+<script src="/static/assets/js/jquery.mCustomScrollbar.concat.min.js"></script>
+</body>
+
+</html>

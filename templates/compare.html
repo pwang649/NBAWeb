@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Compare Players</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="description" content="CodedThemes">
+    <meta name="keywords" content="flat ui, admin  Admin , Responsive, Landing, Bootstrap, App, Template, Mobile, iOS, Android, apple, creative app">
+    <meta name="author" content="CodedThemes">
+    <!-- Favicon icon -->
+    <link rel="icon" href="/static/assets/images/favicon.ico" type="image/x-icon">
+    <!-- Google font--><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,800" rel="stylesheet">
+    <!-- Required Fremwork -->
+    <link rel="stylesheet" type="text/css" href="/static/assets/css/bootstrap/css/bootstrap.min.css">
+    <!-- themify-icons line icon -->
+    <link rel="stylesheet" type="text/css" href="/static/assets/icon/themify-icons/themify-icons.css">
+    <!-- ico font -->
+    <link rel="stylesheet" type="text/css" href="/static/assets/icon/icofont/css/icofont.css">
+    <!-- Style.css -->
+    <link rel="stylesheet" type="text/css" href="/static/assets/css/style.css">
+    <link rel="stylesheet" type="text/css" href="/static/assets/css/jquery.mCustomScrollbar.css">
+</head>
+
+<body>
+    {% include "nav.html" %}
+                    <div class="pcoded-content">
+                        <div class="pcoded-inner-content">
+                            <div class="main-body">
+                                <div class="page-wrapper">
+                                    <div class="page-body">
+                                        <div class="row">
+                                            <div class="col-sm-12">
+                                                <div class="card">
+                                                    <div class="card-header">
+                                                        <div class="card-header-right">
+                                                            <ul class="list-unstyled card-option" style="width: 35px;">
+                                                                <li class=""><i class="icofont icofont-simple-left"></i></li>
+                                                                <li><i class="icofont icofont-maximize full-card"></i></li>
+                                                                <li><i class="icofont icofont-minus minimize-card"></i></li>
+                                                                <li><i class="icofont icofont-refresh reload-card"></i></li>
+                                                                <li><i class="icofont icofont-error close-card"></i></li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                    <form method="get" action="../cSearch">
+                                                        <div class="form-group row">
+                                                            <div class="col-sm-2"></div>
+                                                            <div class="col-sm-3">
+                                                                <input type="text" class="form-control form-control-lg form-control-primary" value="斯蒂芬-库里" name="name1">
+                                                            </div>
+                                                            <div class="col-sm-1 text-center">
+                                                                <p style="font-size: 30px;">VS</p>
+                                                            </div>
+                                                            <div class="col-sm-3">
+                                                                <input type="text" class="form-control form-control-lg form-control-primary" value="凯里-欧文" name="name2">
+                                                            </div>
+                                                            <div class="col-sm-3 text-left">
+                                                                <input type="submit" value="compare" name='compare' class="btn btn-primary btn-round"></input>
+                                                            </div>
+                                                        </div>                              
+                                                    </form>
+                                                </div>
+                                                {% load my_tags %}
+                                                <div class="card">
+                                                    <div class="card-block">
+                                                    <div class="row">
+                                                        <div class="col-sm-0 col-md-1 col-xl-3">
+                                                            <div class="card-header">
+                                                                <h5>{{name1}}</h5>
+                                                            </div>
+                                                            <div class="card-block table-border-style">
+                                                                <div class="table-responsive">
+                                                                    <table class="table">
+                                                                        <thead>
+                                                                            <tr>
+                                                                                <th>#</th>
+                                                                                <th>Attributes</th>
+                                                                                <th>Data</th>
+                                                                            </tr>
+                                                                        </thead>
+                                                                        <tbody>
+                                                                            <tr class="table-active">
+                                                                                <th scope="row">1</th>
+                                                                                <td>Score</td>
+                                                                                <td>{{p1.0}}</td>
+                                                                            </tr>
+                                                                            <tr>
+                                                                                <th scope="row">2</th>
+                                                                                <td>Rebounds</td>
+                                                                                <td>{{p1.9}}</td>
+                                                                            </tr>
+                                                                            <tr class="table-success">
+                                                                                <th scope="row">3</th>
+                                                                                <td>Assists</td>
+                                                                                <td>{{p1.10}}</td>
+                                                                            </tr>
+                                                                            <tr>
+                                                                                <th scope="row">4</th>
+                                                                                <td>Blocks</td>
+                                                                                <td>{{p1.11}}</td>
+                                                                            </tr>
+                                                                            <tr class="table-warning">
+                                                                                <th scope="row">5</th>
+                                                                                <td>Accuracy</td>
+                                                                                <td>{% multi p1.2 100 %}%</td>
+                                                                            </tr>
+                                                                            <tr>
+                                                                                <th scope="row">6</th>
+                                                                                <td>3pt Accuracy</td>
+                                                                                <td>{% multi p1.4 100 %}%</td>
+                                                                            </tr>
+                                                                            <tr class="table-danger">
+                                                                                <th scope="row">7</th>
+                                                                                <td>Free Throw Acc</td>
+                                                                                <td>{% multi p1.6 100 %}%</td>
+                                                                            </tr>
+                                                                            <tr>
+                                                                                <th scope="row">8</th>
+                                                                                <td>Plays</td>
+                                                                                <td>{{p1.7}}</td>
+                                                                            </tr>
+                                                                            <tr class="table-info">
+                                                                                <th scope="row">9</th>
+                                                                                <td>Time Played</td>
+                                                                                <td>{{p1.8}}</td>
+                                                                            </tr>
+                                                                        </tbody>
+                                                                    </table>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-sm-12 col-md-10 col-xl-6">
+                                                            <canvas id="myChart"></canvas>
+                                                        </div>
+                                                        <div class="col-sm-0 col-md-1 col-xl-3">
+                                                            <div class="card-header">
+                                                                <h5>{{name2}}</h5>
+                                                            </div>
+                                                            <div class="card-block table-border-style">
+                                                                <div class="table-responsive">
+                                                                    <table class="table">
+                                                                        <thead>
+                                                                            <tr>
+                                                                                <th>#</th>
+                                                                                <th>Attributes</th>
+                                                                                <th>Data</th>
+                                                                            </tr>
+                                                                        </thead>
+                                                                        <tbody>
+                                                                            <tr class="table-active">
+                                                                                <th scope="row">1</th>
+                                                                                <td>Score</td>
+                                                                                <td>{{p2.0}}</td>
+                                                                            </tr>
+                                                                            <tr>
+                                                                                <th scope="row">2</th>
+                                                                                <td>Rebounds</td>
+                                                                                <td>{{p2.9}}</td>
+                                                                            </tr>
+                                                                            <tr class="table-success">
+                                                                                <th scope="row">3</th>
+                                                                                <td>Assists</td>
+                                                                                <td>{{p2.10}}</td>
+                                                                            </tr>
+                                                                            <tr>
+                                                                                <th scope="row">4</th>
+                                                                                <td>Blocks</td>
+                                                                                <td>{{p2.11}}</td>
+                                                                            </tr>
+                                                                            <tr class="table-warning">
+                                                                                <th scope="row">5</th>
+                                                                                <td>Accuracy</td>
+                                                                                <td>{% multi p2.2 100 %}%</td>
+                                                                            </tr>
+                                                                            <tr>
+                                                                                <th scope="row">6</th>
+                                                                                <td>3pt Accuracy</td>
+                                                                                <td>{% multi p2.4 100 %}%</td>
+                                                                            </tr>
+                                                                            <tr class="table-danger">
+                                                                                <th scope="row">7</th>
+                                                                                <td>Free Throw Acc</td>
+                                                                                <td>{% multi p2.6 100 %}%</td>
+                                                                            </tr>
+                                                                            <tr>
+                                                                                <th scope="row">8</th>
+                                                                                <td>Plays</td>
+                                                                                <td>{{p2.7}}</td>
+                                                                            </tr>
+                                                                            <tr class="table-info">
+                                                                                <th scope="row">9</th>
+                                                                                <td>Time Played</td>
+                                                                                <td>{{p2.8}}</td>
+                                                                            </tr>
+                                                                        </tbody>
+                                                                    </table>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        
+        const data = {
+            labels: [
+                'Score',
+                'Accuracy',
+                '3pt Accuracy',
+                'Free Throw Accuracy',
+                'Rebounds',
+                'Assists',
+                'Blocks'
+            ],
+            datasets: [{
+                label: "{{name1}}",
+                data: [{% limit p1.0 0 38 %}, 
+                {% limit p1.2 0 0.60 %}, 
+                {% limit p1.4 0 0.50 %},
+                {% limit p1.6 0.4 1 %},
+                {% limit p1.9 0 10 %}, 
+                {% limit p1.10 0 8 %},
+                {% limit p1.11 0 1.8 %}],
+                fill: true,
+                backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                borderColor: 'rgb(255, 99, 132)',
+                pointBackgroundColor: 'rgb(255, 99, 132)',
+                pointBorderColor: '#fff',
+                pointHoverBackgroundColor: '#fff',
+                pointHoverBorderColor: 'rgb(255, 99, 132)'
+            }, {
+                label: "{{name2}}",
+                data: [{% limit p2.0 0 38 %}, 
+                {% limit p2.2 0 0.60 %}, 
+                {% limit p2.4 0 0.50 %},
+                {% limit p2.6 0.4 1 %},
+                {% limit p2.9 0 10 %}, 
+                {% limit p2.10 0 8 %},
+                {% limit p2.11 0 1.8 %}],
+                fill: true,
+                backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                borderColor: 'rgb(54, 162, 235)',
+                pointBackgroundColor: 'rgb(54, 162, 235)',
+                pointBorderColor: '#fff',
+                pointHoverBackgroundColor: '#fff',
+                pointHoverBorderColor: 'rgb(54, 162, 235)'
+            }]
+        };
+        const config = {
+            type: 'radar',
+            data: data,
+            options: {
+                elements: {
+                    line: {
+                        borderWidth: 3
+                    }
+                },
+                scale: {
+                    max: 100,
+                    min: 10,
+                    stepSize: 10
+                }
+            }
+        };
+        var myChart = new Chart(
+            document.getElementById('myChart'),
+            config
+        );
+    </script>
+<!-- Required Jquery -->
+<script type="text/javascript" src="/static/assets/js/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="/static/assets/js/jquery-ui/jquery-ui.min.js"></script>
+<script type="text/javascript" src="/static/assets/js/popper.js/popper.min.js"></script>
+<script type="text/javascript" src="/static/assets/js/bootstrap/js/bootstrap.min.js"></script>
+<!-- jquery slimscroll js -->
+<script type="text/javascript" src="/static/assets/js/jquery-slimscroll/jquery.slimscroll.js"></script>
+<!-- modernizr js -->
+<script type="text/javascript" src="/static/assets/js/modernizr/modernizr.js"></script>
+<script type="text/javascript" src="/static/assets/js/modernizr/css-scrollbars.js"></script>
+<!-- classie js -->
+<script type="text/javascript" src="/static/assets/js/classie/classie.js"></script>
+<!-- Custom js -->
+<script type="text/javascript" src="/static/assets/js/script.js"></script>
+<script src="/static/assets/js/pcoded.min.js"></script>
+<script src="/static/assets/js/demo-12.js"></script>
+<script src="/static/assets/js/jquery.mCustomScrollbar.concat.min.js"></script>
+</body>
+
+</html>

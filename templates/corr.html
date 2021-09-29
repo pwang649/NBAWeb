@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Correlation Analysis</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="description" content="CodedThemes">
+    <meta name="keywords" content="flat ui, admin  Admin , Responsive, Landing, Bootstrap, App, Template, Mobile, iOS, Android, apple, creative app">
+    <meta name="author" content="CodedThemes">
+    <!-- Favicon icon -->
+    <link rel="icon" href="/static/assets/images/favicon.ico" type="image/x-icon">
+    <!-- Google font--><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,800" rel="stylesheet">
+    <!-- Required Fremwork -->
+    <link rel="stylesheet" type="text/css" href="/static/assets/css/bootstrap/css/bootstrap.min.css">
+    <!-- themify-icons line icon -->
+    <link rel="stylesheet" type="text/css" href="/static/assets/icon/themify-icons/themify-icons.css">
+    <!-- ico font -->
+    <link rel="stylesheet" type="text/css" href="/static/assets/icon/icofont/css/icofont.css">
+    <!-- Style.css -->
+    <link rel="stylesheet" type="text/css" href="/static/assets/css/style.css">
+    <link rel="stylesheet" type="text/css" href="/static/assets/css/jquery.mCustomScrollbar.css">
+</head>
+
+<body>
+    {% include "nav.html" %}
+                    <div class="pcoded-content">
+                        <div class="pcoded-inner-content">
+                            <div class="main-body">
+                                <div class="page-wrapper">
+                                    <div class="page-body">
+                                        <div class="card">
+                                            <div class="row">
+                                                <div class="col-sm-12">
+                                                    <div class="card-header">
+                                                    </div>
+                                                    <div class="card-block">
+                                                        <form action="../correlation" method="get">
+                                                            <div class="form-group row">
+                                                            
+                                                                <label class="col-sm-2 col-form-label text-center">Choose two factors and a year</label>
+                                                                <div class="col-sm-2">
+                                                                    <select name="factor1" class="form-control form-control-primary">
+                                                                        <option value="score">score</option>
+                                                                        <option value="minutes">minutes</option>
+                                                                        <option value="field_goals_att">field_goals_att</option>
+                                                                        <option value="three_points_att">three_points_att</option>
+                                                                        <option value="rebounds">rebounds</option>
+                                                                        <option value="assists">assists</option>
+                                                                    </select>
+                                                                </div>
+                                                                <div class="col-sm-1 col-form-label text-center">VS</div>
+                                                                <div class="col-sm-2">
+                                                                    <select name="factor2" class="form-control form-control-primary">
+                                                                        <option value="score">score</option>
+                                                                        <option value="minutes">minutes</option>
+                                                                        <option value="field_goals_att">field_goals_att</option>
+                                                                        <option value="three_points_att">three_points_att</option>
+                                                                        <option value="rebounds">rebounds</option>
+                                                                        <option value="assists">assists</option>
+                                                                    </select>
+                                                                </div>
+                                                                <div class="col-sm-1 col-form-label text-center">IN YEAR</div>
+                                                                <div class="col-sm-2">
+                                                                    <select name="corrYear" id="cmbState" class="form-control form-control-primary">
+                                                                        <option value="2019">2019</option>
+                                                                        <option value="2018">2018</option>
+                                                                        <option value="2017">2017</option>
+                                                                        <option value="2016">2016</option>
+                                                                        <option value="2015">2015</option>
+                                                                        <option value="2014">2014</option>
+                                                                    </select>
+                                                                </div>
+                                                                <div class="col-sm-2 text-center">
+                                                                    <input type="submit" value="Search" class="btn btn-primary btn-round"></input>
+                                                                </div>
+                                                            
+                                                            </div>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-12 col-xl-8">
+                                                <div class="card">
+                                                    <div class="card-header">
+                                                        <h5>Correlation Map</h5>
+                                                        <div class="card-header-left ">
+                                                        </div>
+                                                        <div class="card-header-right">
+                                                            <ul class="list-unstyled card-option">
+                                                                <li><i class="icofont icofont-simple-left "></i></li>
+                                                                <li><i class="icofont icofont-maximize full-card"></i></li>
+                                                                <li><i class="icofont icofont-minus minimize-card"></i></li>
+                                                                <li><i class="icofont icofont-refresh reload-card"></i></li>
+                                                                <li><i class="icofont icofont-error close-card"></i></li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                    <div class="card-block">
+                                                        <div class="col-sm-12">
+                                                            <img class="img-fluid" src="/static/assets/images/corrScatter.png"/>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- Data widget start -->
+                                            <div class="col-md-12 col-xl-4">
+                                                <div class="card project-task">
+                                                    <div class="card-header">
+                                                        <div class="card-header-left ">
+                                                            <h5>Correlation among all the years</h5>
+                                                        </div>
+                                                        <div class="card-header-right">
+                                                            <ul class="list-unstyled card-option">
+                                                                <li><i class="icofont icofont-simple-left "></i></li>
+                                                                <li><i class="icofont icofont-maximize full-card"></i></li>
+                                                                <li><i class="icofont icofont-minus minimize-card"></i></li>
+                                                                <li><i class="icofont icofont-refresh reload-card"></i></li>
+                                                                <li><i class="icofont icofont-error close-card"></i></li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                    <div class="card-block p-b-10">
+                                                        <div class="table-responsive">
+                                                            {% load my_tags %}
+                                                            <table class="table table-hover">
+                                                                <thead>
+                                                                    <tr>
+                                                                        <th>Year</th>
+                                                                        <th>Correlation</th>
+                                                                    </tr>
+                                                                </thead>
+                                                                <tbody>
+                                                                    <tr>
+                                                                        <td>
+                                                                            <div class="task-contain">
+                                                                                <h6 class="bg-c-blue d-inline-block text-center">19</h6>
+                                                                                <p class="d-inline-block m-l-20">2019</p>
+                                                                            </div>
+                                                                        </td>
+                                                                        <td>
+                                                                            <p class="d-inline-block m-r-20">{{corr2019}}</p>
+                                                                            <div class="progress d-inline-block">
+                                                                                <div class="progress-bar bg-c-blue" role="progressbar" aria-valuemin="0" aria-valuemax="100" style="width:{% multi corr2019 100 %}%">
+                                                                                </div>
+                                                                            </div>
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>
+                                                                            <div class="task-contain">
+                                                                                <h6 class="bg-c-pink d-inline-block text-center">18</h6>
+                                                                                <p class="d-inline-block m-l-20">2018</p>
+                                                                            </div>
+                                                                        </td>
+                                                                        <td>
+                                                                            <p class="d-inline-block m-r-20">{{corr2018}}</p>
+                                                                            <div class="progress d-inline-block">
+                                                                                <div class="progress-bar bg-c-pink" role="progressbar" aria-valuemin="0" aria-valuemax="100" style="width:{% multi corr2018 100 %}%">
+                                                                                </div>
+                                                                            </div>
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>
+                                                                            <div class="task-contain">
+                                                                                <h6 class="bg-c-yellow d-inline-block text-center">17</h6>
+                                                                                <p class="d-inline-block m-l-20">2017</p>
+                                                                            </div>
+                                                                        </td>
+                                                                        <td>
+                                                                            <p class="d-inline-block m-r-20">{{corr2017}}</p>
+                                                                            <div class="progress d-inline-block">
+                                                                                <div class="progress-bar bg-c-yellow" role="progressbar" aria-valuemin="0" aria-valuemax="100" style="width:{% multi corr2017 100 %}%">
+                                                                                </div>
+                                                                            </div>
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>
+                                                                            <div class="task-contain">
+                                                                                <h6 class="bg-c-green d-inline-block text-center">16</h6>
+                                                                                <p class="d-inline-block m-l-20">2016</p>
+                                                                            </div>
+                                                                        </td>
+                                                                        <td>
+                                                                            <p class="d-inline-block m-r-20">{{corr2016}}</p>
+                                                                            <div class="progress d-inline-block">
+                                                                                <div class="progress-bar bg-c-green" role="progressbar" aria-valuemin="0" aria-valuemax="100" style="width:{% multi corr2016 100 %}%">
+                                                                                </div>
+                                                                            </div>
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>
+                                                                            <div class="task-contain">
+                                                                                <h6 class="bg-c-blue d-inline-block text-center">15</h6>
+                                                                                <p class="d-inline-block m-l-20">2015</p>
+                                                                            </div>
+                                                                        </td>
+                                                                        <td>
+                                                                            <p class="d-inline-block m-r-20">{{corr2015}}</p>
+                                                                            <div class="progress d-inline-block">
+                                                                                <div class="progress-bar bg-c-blue" role="progressbar" aria-valuemin="0" aria-valuemax="100" style="width:{% multi corr2015 100 %}%">
+                                                                                </div>
+                                                                            </div>
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>
+                                                                            <div class="task-contain">
+                                                                                <h6 class="bg-c-pink d-inline-block text-center">14</h6>
+                                                                                <p class="d-inline-block m-l-20">2014</p>
+                                                                            </div>
+                                                                        </td>
+                                                                        <td>
+                                                                            <p class="d-inline-block m-r-20">{{corr2014}}</p>
+                                                                            <div class="progress d-inline-block">
+                                                                                <div class="progress-bar bg-c-pink" role="progressbar" aria-valuemin="0" aria-valuemax="100" style="width:{% multi corr2014 100 %}%">
+                                                                                </div>
+                                                                            </div>
+                                                                        </td>
+                                                                    </tr>
+                                                                </tbody>
+                                                            </table>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-xl-12">
+                                                <div class="card">
+                                                    <div class="card-header">
+                                                        <h5>Correlation Map</h5>
+                                                        <div class="card-header-left ">
+                                                        </div>
+                                                        <div class="card-header-right">
+                                                            <ul class="list-unstyled card-option">
+                                                                <li><i class="icofont icofont-simple-left "></i></li>
+                                                                <li><i class="icofont icofont-maximize full-card"></i></li>
+                                                                <li><i class="icofont icofont-minus minimize-card"></i></li>
+                                                                <li><i class="icofont icofont-refresh reload-card"></i></li>
+                                                                <li><i class="icofont icofont-error close-card"></i></li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                    <div class="card-block">
+                                                        <div class="col-sm-12">
+                                                            <img class="img-fluid" src="/static/assets/images/corr.png"/>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>      
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<!-- Required Jquery -->
+<script type="text/javascript" src="/static/assets/js/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="/static/assets/js/jquery-ui/jquery-ui.min.js"></script>
+<script type="text/javascript" src="/static/assets/js/popper.js/popper.min.js"></script>
+<script type="text/javascript" src="/static/assets/js/bootstrap/js/bootstrap.min.js"></script>
+<!-- jquery slimscroll js -->
+<script type="text/javascript" src="/static/assets/js/jquery-slimscroll/jquery.slimscroll.js"></script>
+<!-- modernizr js -->
+<script type="text/javascript" src="/static/assets/js/modernizr/modernizr.js"></script>
+<script type="text/javascript" src="/static/assets/js/modernizr/css-scrollbars.js"></script>
+<!-- classie js -->
+<script type="text/javascript" src="/static/assets/js/classie/classie.js"></script>
+<!-- Custom js -->
+<script type="text/javascript" src="/static/assets/js/script.js"></script>
+<script src="/static/assets/js/pcoded.min.js"></script>
+<script src="/static/assets/js/demo-12.js"></script>
+<script src="/static/assets/js/jquery.mCustomScrollbar.concat.min.js"></script>
+</body>
+
+</html>

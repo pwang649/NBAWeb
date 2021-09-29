@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Year Analysis</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="description" content="CodedThemes">
+    <meta name="keywords" content="flat ui, admin  Admin , Responsive, Landing, Bootstrap, App, Template, Mobile, iOS, Android, apple, creative app">
+    <meta name="author" content="CodedThemes">
+    <!-- Favicon icon -->
+    <link rel="icon" href="/static/assets/images/favicon.ico" type="image/x-icon">
+    <!-- Google font--><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,800" rel="stylesheet">
+    <!-- Required Fremwork -->
+    <link rel="stylesheet" type="text/css" href="/static/assets/css/bootstrap/css/bootstrap.min.css">
+    <!-- themify-icons line icon -->
+    <link rel="stylesheet" type="text/css" href="/static/assets/icon/themify-icons/themify-icons.css">
+    <!-- ico font -->
+    <link rel="stylesheet" type="text/css" href="/static/assets/icon/icofont/css/icofont.css">
+    <!-- Style.css -->
+    <link rel="stylesheet" type="text/css" href="/static/assets/css/style.css">
+    <link rel="stylesheet" type="text/css" href="/static/assets/css/jquery.mCustomScrollbar.css">
+</head>
+
+<body>
+    {% include "nav.html" %}
+                    <div class="pcoded-content">
+                        <div class="pcoded-inner-content">
+                            <div class="main-body">
+                                <div class="page-wrapper">
+                                    <div class="card">
+                                        <div class="row">
+                                            <div class="col-sm-12">
+                                                <div class="card-header">
+                                                </div>
+                                                <div class="card-block">
+                                                    <form action="../ySearch" method="get">
+                                                        <div class="form-group row">
+                                                        
+                                                            <label class="col-sm-2 col-form-label text-center">Select A Period of Year</label>
+                                                            <div class="col-sm-3">
+                                                                <select name="startYear" class="form-control form-control-primary">
+                                                                    <option value="2019">2019</option>
+                                                                    <option value="2018">2018</option>
+                                                                    <option value="2017">2017</option>
+                                                                    <option value="2016">2016</option>
+                                                                    <option value="2015">2015</option>
+                                                                    <option value="2014">2014</option>
+                                                                </select>
+                                                            </div>
+                                                            <div class="col-sm-1 col-form-label text-center">TO</div>
+                                                            <div class="col-sm-3">
+                                                                <select name="endYear" class="form-control form-control-primary">
+                                                                    <option value="2019">2019</option>
+                                                                    <option value="2018">2018</option>
+                                                                    <option value="2017">2017</option>
+                                                                    <option value="2016">2016</option>
+                                                                    <option value="2015">2015</option>
+                                                                    <option value="2014">2014</option>
+                                                                </select>
+                                                            </div>
+                                                            <div class="col-sm-2 text-center">
+                                                                <input type="submit" value="Search" class="btn btn-primary btn-round"></input>
+                                                            </div>
+                                                        
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="row">
+                                        <div class="col-md-12 col-lg-12">
+                                            <div class="card">
+                                                <div class="card-header">
+                                                    <h5 class="card-header-text">LIST OF PLAYERS</h5>
+                                                </div>
+                                                <div class="card-block accordion-block color-accordion-block">
+                                                    <div class="color-accordion" id="color-accordion">
+                                                        {% load my_tags %}
+                                                        {% for player in exclusive_ranking %}
+                                                            {% with name=player %}
+                                                            <a  class="accordion-msg b-none">{{ player }}</a>
+                                                            <div class="accordion-desc" id="{{player}}">
+                                                                {% my_tag1 name %}
+                                                            </div>
+                                                            {% endwith %}
+                                                        {% endfor %}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-12 col-lg-12">
+                                            <div class="card">
+                                                <div class="card-header">
+                                                    <h5 class="card-header-text">GRAPH OF THE YEAR</h5>
+                                                </div>
+                                                <div class="card-block">
+                                                    {{singleYearGraph|safe}}
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<!-- Required Jquery -->
+<script type="text/javascript" src="/static/assets/js/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="/static/assets/js/jquery-ui/jquery-ui.min.js"></script>
+<script type="text/javascript" src="/static/assets/js/popper.js/popper.min.js"></script>
+<script type="text/javascript" src="/static/assets/js/bootstrap/js/bootstrap.min.js"></script>
+<!-- jquery slimscroll js -->
+<script type="text/javascript" src="/static/assets/js/jquery-slimscroll/jquery.slimscroll.js"></script>
+<!-- modernizr js -->
+<script type="text/javascript" src="/static/assets/js/modernizr/modernizr.js"></script>
+<script type="text/javascript" src="/static/assets/js/modernizr/css-scrollbars.js"></script>
+<!-- classie js -->
+<script type="text/javascript" src="/static/assets/js/classie/classie.js"></script>
+<!-- Accordion js -->
+<script type="text/javascript" src="/static/assets/pages/accordion/accordion.js"></script>
+<!-- Custom js -->
+<script type="text/javascript" src="/static/assets/js/script.js"></script>
+<script src="/static/assets/js/pcoded.min.js"></script>
+<script src="/static/assets/js/demo-12.js"></script>
+<script src="/static/assets/js/jquery.mCustomScrollbar.concat.min.js"></script>
+</body>
+
+</html>
